@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './Header/Header'
+import AllCard from './MainCard/AllCard'
 import MainPage from './MainCard/MainPage'
 import Navbar from './SideNavigation/Navbar'
 
