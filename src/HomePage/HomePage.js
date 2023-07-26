@@ -16,6 +16,7 @@ const HomePage = () => {
                 </div>
                 <div style={{ width: '70%', background: "blue" }}>
                     <MainPage />
+                    {/* <AllCard/> */}
                 </div>
 
             </div>

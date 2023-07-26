@@ -1,5 +1,7 @@
 import { SettingsSystemDaydreamTwoTone } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
+import AllCard from './AllCard'
+import '../../App.css'
 
 const MainPage = () => {
   const [user, setUser] = useState([])
@@ -19,7 +21,11 @@ const MainPage = () => {
 
   console.log(user, 'test')
   return (
-    <div>MainPage</div>
+    <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' , gap: '20px'}}>
+      {user.map((data) => 
+        <AllCard image={data.backdrop_path} title={data.title} rating={data.vote_average} language={data.original_language}/>
+      )}
+    </div>
   )
 }
 

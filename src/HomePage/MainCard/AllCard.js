@@ -6,27 +6,24 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function AllCard() {
+export default function AllCard({image, title, rating, language}) {
   return (
     <Card sx={{ maxWidth: 345 }} style={{margin: '20px'}}>
       <CardMedia
         sx={{ height: 140 , padding: 10}}
-        image="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRGOKZ1-AmwYYpG9OFmQYPCn-U22ORyXcAqnvvy1yaELrs5XAaWR0SYkNn9Q8SgtulK1nIoI-tyHN5YOYI"
+        image={`https://image.tmdb.org/t/p/original${image}`}
         title="green iguana"
         
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {title}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+      <CardActions style={{justifyContent: 'space-between', padding: '5px 15px 15px 15px'}}>
+
+        <div>{language} </div>
+        <div>{rating}</div>
       </CardActions>
     </Card>
   );
