@@ -34,6 +34,7 @@ const Navbar = () => {
     <Box
       sx={{ width: '100%', height: 400, maxWidth: 360, bgcolor: 'background.paper' }}
     >
+      <h1>Genres</h1>
       <nav aria-label="secondary mailbox folders">
         {users && users.map((data)=> 
          <List>
