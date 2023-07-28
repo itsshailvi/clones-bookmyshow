@@ -11,10 +11,10 @@ const HomePage = () => {
                 <Header />
             </div>
             <div style={{ display: 'flex', flexDirection: 'row', height: "90%" }}>
-                <div style={{ width: '30%', background: "red" }}>
+                <div style={{ width: '30%',}}>
                     <Navbar />
                 </div>
-                <div style={{ width: '70%', background: "blue" }}>
+                <div style={{ width: '70%', }}>
                     <MainPage />
                     {/* <AllCard/> */}
                 </div>
