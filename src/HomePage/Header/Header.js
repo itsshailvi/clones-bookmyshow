@@ -2,6 +2,10 @@ import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
+import Fab from '@mui/material/Fab';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import IconButton from '@mui/joy/IconButton';
 
 const Header = () => {
     const Search = styled('div')(({ theme }) => ({
@@ -61,6 +65,14 @@ const Header = () => {
                         inputProps={{ 'aria-label': 'search' }}
                     />
                 </Search>
+          {/* <Fab color="secondary" aria-label="like">
+            <FavoriteIcon />
+          </Fab> */}
+          <IconButton variant="plain" color="neutral" size="sm">
+            <FavoriteBorder />
+          </IconButton>
+
+                
             </div>
 
             {/* <div>Header</div> */}
