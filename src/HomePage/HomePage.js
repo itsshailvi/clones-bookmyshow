@@ -11,7 +11,7 @@ const HomePage = () => {
                 <Header />
             </div>
             <div style={{ display: 'flex', flexDirection: 'row', height: "80%" }}>
-                <div style={{ width: '12%', borderRightStyle: 'solid'}}>
+                <div style={{ width: '12%', borderRightStyle: 'solid', display:'flex'}}>
                     <Navbar />
                 </div>
                 <div style={{ width: '88%', }}>

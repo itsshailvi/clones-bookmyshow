@@ -32,9 +32,12 @@ const Navbar = () => {
 
   return (
     <Box
-      sx={{ width: '100%', height: 400, maxWidth: 360, bgcolor: 'background.paper' }}
+      sx={{ width: '100%', height: 400, maxWidth: 360, bgcolor: 'background.paper'}}
     >
+      <div>
       <h1>Genres</h1>
+      </div>
+      <div style={{display: 'flex', justifyContent: 'flex-end'}}>
       <nav aria-label="secondary mailbox folders" >
         {users && users.map((data)=> 
          <List>
@@ -46,6 +49,7 @@ const Navbar = () => {
        </List>
         )}
       </nav>
+      </div>
     </Box>
   )
 }

@@ -76,7 +76,7 @@ const Header = () => {
           <IconButton variant="plain" color="neutral" size="lg" sx={{fontSize: ''}}>
             <FavoriteBorder />
           </IconButton>
-          <IconButton sx={{margin: '0px 10px 0px 10px' , padding: '10px'}}>
+          <IconButton sx={{margin: '0px 10px 0px 10px' , paddingRight: '20px'}}>
           <PersonIcon sx={{fontSize: '30px' , margin: '0px 10px 0px 10px'}}/>
           Shailvi
           </IconButton>
