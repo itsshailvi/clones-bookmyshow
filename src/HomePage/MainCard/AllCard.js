@@ -5,10 +5,17 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
 
 export default function AllCard({image, title, rating, language}) {
+    const movieDetail = () => 
+    <div>hello world </div>
+    
   return (
-    <Card sx={{ maxWidth: 345 }} style={{margin: '20px'}}>
+    <Card sx={{ maxWidth: 345 }} style={{margin: '20px'}} onClick={{}}>
       <CardMedia
         sx={{ height: 140 , padding: 10}}
         image={`https://image.tmdb.org/t/p/original${image}`}

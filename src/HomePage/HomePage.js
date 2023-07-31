@@ -7,10 +7,10 @@ import Navbar from './SideNavigation/Navbar'
 const HomePage = () => {
     return (
         <div style={{ display: "flex", flexDirection: 'column' , height:"100%", position: 'absolute', width:"100%"}}>
-            <div style={{ height: '20%' , borderBottomStyle: 'solid'}}>
+            <div style={{ height: '14%' , borderBottomStyle: 'solid'}}>
                 <Header />
             </div>
-            <div style={{ display: 'flex', flexDirection: 'row', height: "80%" }}>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <div style={{ width: '12%', borderRightStyle: 'solid', display:'flex'}}>
                     <Navbar />
                 </div>
