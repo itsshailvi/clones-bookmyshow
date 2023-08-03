@@ -1,7 +1,15 @@
-import React from 'react'
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
 
-export const DescriptiveCard = () => {
-  return (
-    <div>DescriptiveCard</div>
-  )
+
+
+export function DescriptiveCard({rating, title}) {
+
+
+    return (
+        <><h1>{title}</h1>
+        </>
+    );
 }
