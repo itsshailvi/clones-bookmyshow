@@ -7,13 +7,15 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
+import { DescriptiveCard } from './DescriptiveCard';
+const [showCard, setShowCard] = useState(false);
 
 export default function AllCard({image, title, rating, language}) {
     const movieDetail = () => 
     <div>hello world </div>
     
   return (
-    <Card sx={{ maxWidth: 345 }} style={{margin: '20px'}} onClick={{}}>
+    <Card sx={{ maxWidth: 345 }} style={{margin: '20px'}} onClick={ <DescriptiveCard/>}>
       <CardMedia
         sx={{ height: 140 , padding: 10}}
         image={`https://image.tmdb.org/t/p/original${image}`}
