@@ -14,14 +14,14 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 700,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
   };
 
-export default function AllCard({image, title, rating, language}) {
+export default function AllCard({image, title, rating, language,desc,popularity}) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
       setOpen(true);
@@ -58,7 +58,7 @@ export default function AllCard({image, title, rating, language}) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-            <DescriptiveCard img={`https://image.tmdb.org/t/p/original${image}`} title={title} rating={rating}/>
+            <DescriptiveCard img={`https://image.tmdb.org/t/p/original${image}`} title={title} rating={rating} desc={desc} popularity={popularity}/>
         </Box>
       </Modal>
     </>
