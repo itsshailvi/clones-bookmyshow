@@ -39,7 +39,7 @@ const Header = () => {
         </div>
         <div style={{ display: 'flex' }}>
           <TextField id="outlined-basic" label="Search" variant="outlined" type="text" value={query} onChange={handleInputChange}/>
-          <Button variant="outlined" style={{ margin: '0px 10px 0px 10px', textTransform: '' }}>Search</Button>
+          <Button variant="outlined" style={{ margin: '0px 10px 0px 10px', textTransform: '' }} onClick={handleSearch}>Search</Button>
           <IconButton variant="plain" color="neutral" size="lg" sx={{ fontSize: '' }}>
             <FavoriteBorder sx={{ fontSize: '2em' }} />
           </IconButton>
