@@ -23,7 +23,7 @@ const MainPage = () => {
   return (
     <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' , gap: '20px'}}>
       {user.map((data) => 
-        <AllCard image={data.backdrop_path} title={data.title} rating={data.vote_average} language={data.original_language}/>
+        <AllCard image={data.backdrop_path} title={data.title} rating={data.vote_average} language={data.original_language} desc={data.overview} popularity={data.popularity}/>
       )}
     </div>
   )
