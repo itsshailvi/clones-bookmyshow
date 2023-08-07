@@ -23,10 +23,10 @@ export function DescriptiveCard({rating, title, img,desc,popularity}) {
             </div>
             <div style={{marginLeft: '20px'}}>
                 <h1>{title}</h1>
-                <h5>Rating {rating}/10</h5>
-                <h5>Time {runtimeRandom.toFixed()} minutes</h5>
+                <h5>Rating: {rating}/10</h5>
+                <h5>Time: {runtimeRandom.toFixed()} min</h5>
                 <div style={{margin: '10px 0px'}}>{desc}</div>
-                <div>Price Rs {Math.round(scaledRandom)}</div>
+                <h5>Price: Rs {Math.round(scaledRandom)}</h5>
                 <div style={{marginTop: '10px'}}>
 
                     <Button variant="outlined"> Book Tickets</Button>
