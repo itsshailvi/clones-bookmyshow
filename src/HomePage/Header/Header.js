@@ -30,6 +30,17 @@ const Header = () => {
       });
   };
 
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(`YOUR_API_ENDPOINT?q=${query}`);
+      const data = await response.json();
+      dispatch(updateResults(data));
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      dispatch(updateResults([]));
+    }
+  };
+
 
   return (
     <>
