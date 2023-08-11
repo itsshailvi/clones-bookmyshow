@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 
 export const fetchMovie = createAsyncThunk(
-    "movie/getMovieSearch",
+    "search/fetchMovie",
     async (payload) => {
         const header = {
             'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ export const fetchMovie = createAsyncThunk(
   );
 
   export const fetchMovieName = createAsyncThunk(
-    "movie/getMovieSearch",
+    "search/fetchMovieName",
     async (payload) => {
         const header = {
             'Content-Type': 'application/json',
@@ -30,15 +30,36 @@ export const fetchMovie = createAsyncThunk(
     }
   );
 
+  export const fetchUserData = createAsyncThunk(
+    "search/fetchUserData",
+    async () => {
+        const header = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkN2NkZDgyZTYzNTNkNTg3Mzc5YWMxZjdjNzc5N2JlYiIsInN1YiI6IjY0YTE0MjhiYzM5MGM1MDBlYjM1NTU0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tw-vDY3w7kzHCUJHIVW9iKH-9RmwFhbUjMXcPvsWnPg'
+          }
+        const response = await fetch("https://api.themoviedb.org/3/genre/movie/list?language=en", { method: 'GET', headers: header })
+        const data = await response.json();
+        return data.genres
+    }
+  );
+
+
 const searchSlice = createSlice({
   name: 'search',
   initialState: {
     results: [],
+    users: [],
+    query: '',
   },
   reducers: {
-    updateResults: (state, action) => {
-      state.results = action.payload;
+    fetchGenres: (state, action) => {
+      const list = state.results.filter((data) => data.genre_ids.includes(action.payload)
+      )
+      state.results = list
     },
+    setQuery: (state, action) => {
+      state.query = action.payload
+    }
   },
   extraReducers: {
     [fetchMovie.fulfilled]: (state, { payload }) => {
@@ -47,9 +68,12 @@ const searchSlice = createSlice({
     [fetchMovieName.fulfilled]: (state, { payload }) => {
         state.results = payload;
     },
+    [fetchUserData.fulfilled]: (state, { payload }) => {
+        state.users = payload;
+    },
   },
 });
 
-export const { updateQuery, updateResults } = searchSlice.actions;
+export const { fetchGenres, setQuery} = searchSlice.actions;
 
 export default searchSlice.reducer;

@@ -10,15 +10,15 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import PersonIcon from '@mui/icons-material/Person';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateQuery, updateResults, fetchMovie, fetchMovieName } from './searchSlice';
+import { updateQuery, updateResults, fetchMovie, fetchMovieName, setQuery } from './searchSlice';
 
 
 const Header = () => {
   const dispatch = useDispatch();
-  const [query, setQuery] = useState('');
+  const {query } = useSelector((state) => state.search);
 
   const handleInputChange = (event) => {
-    setQuery(event.target.value);
+    dispatch(setQuery(event.target.value))
   };
 
   const handleSearch = async () => {
