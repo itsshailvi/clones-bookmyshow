@@ -1,12 +1,15 @@
 // store.js
 import { configureStore } from '@reduxjs/toolkit';
-import searchReducer from './searchSlice';
+import searchReducer from './../HomePage/Header/searchSlice';
+import thunkMiddleware from 'redux-thunk';
 
-const store = configureStore({
+
+export const store = configureStore({
   reducer: {
     search: searchReducer,
     // other reducers...
   },
+  middleware: [thunkMiddleware],
 });
 
-export default store;
+// export default store;

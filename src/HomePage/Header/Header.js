@@ -9,37 +9,29 @@ import IconButton from '@mui/joy/IconButton';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import PersonIcon from '@mui/icons-material/Person';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateQuery, updateResults } from './searchSlice';
+
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [query, setQuery] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
 
-  const handleSearch = () => {
-    // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint for search.
-    fetch(`YOUR_API_ENDPOINT?q=${query}` `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`)
-      .then((response) => response.json())
-      .then((data) => setSearchResults(data))
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setSearchResults([]);
-      });
-  };
-
   const handleSearch = async () => {
-    try {
-      const response = await fetch(`YOUR_API_ENDPOINT?q=${query}`);
-      const data = await response.json();
-      dispatch(updateResults(data));
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      dispatch(updateResults([]));
+    const header = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkN2NkZDgyZTYzNTNkNTg3Mzc5YWMxZjdjNzc5N2JlYiIsInN1YiI6IjY0YTE0MjhiYzM5MGM1MDBlYjM1NTU0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tw-vDY3w7kzHCUJHIVW9iKH-9RmwFhbUjMXcPvsWnPg'
     }
-  };
+    if(query.length){
+      const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, { method: 'GET', headers: header })
+      const data = await response.json();
+      dispatch(updateResults(data.results));
+    } 
+  }
 
 
   return (
