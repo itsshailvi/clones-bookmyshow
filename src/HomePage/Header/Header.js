@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import PersonIcon from '@mui/icons-material/Person';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateQuery, updateResults } from './searchSlice';
+import { updateQuery, updateResults, fetchMovie, fetchMovieName } from './searchSlice';
 
 
 const Header = () => {
@@ -22,15 +22,17 @@ const Header = () => {
   };
 
   const handleSearch = async () => {
-    const header = {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkN2NkZDgyZTYzNTNkNTg3Mzc5YWMxZjdjNzc5N2JlYiIsInN1YiI6IjY0YTE0MjhiYzM5MGM1MDBlYjM1NTU0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tw-vDY3w7kzHCUJHIVW9iKH-9RmwFhbUjMXcPvsWnPg'
-    }
-    if(query.length){
-      const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, { method: 'GET', headers: header })
-      const data = await response.json();
-      dispatch(updateResults(data.results));
-    } 
+    // const header = {
+    //   'Content-Type': 'application/json',
+    //   'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkN2NkZDgyZTYzNTNkNTg3Mzc5YWMxZjdjNzc5N2JlYiIsInN1YiI6IjY0YTE0MjhiYzM5MGM1MDBlYjM1NTU0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tw-vDY3w7kzHCUJHIVW9iKH-9RmwFhbUjMXcPvsWnPg'
+    // }
+    // if(query.length){
+    //   const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, { method: 'GET', headers: header })
+    //   const data = await response.json();
+    //   dispatch(updateResults(data.results));
+    // } 
+
+    dispatch(fetchMovieName(query));
   }
 
 
