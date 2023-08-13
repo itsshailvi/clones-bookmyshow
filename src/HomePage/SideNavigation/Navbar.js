@@ -22,7 +22,7 @@ const Navbar = () => {
       }
       setTimeout(() => {
         dispatch(fetchGenres(id));
-      },10)
+      },5)
     }
 
   return (
