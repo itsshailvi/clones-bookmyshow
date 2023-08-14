@@ -25,7 +25,6 @@ export default function AllCard({image, title, rating, language,desc,popularity}
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
       setOpen(true);
-      console.log('helloworld')
     };
     const handleClose = () => {
       setOpen(false);

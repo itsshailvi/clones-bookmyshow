@@ -4,31 +4,26 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import List from '@mui/material/List';
+import { useDispatch, useSelector } from 'react-redux';
+import {  fetchUserData, fetchGenres, fetchMovie, fetchMovieName } from './../../HomePage/Header/searchSlice'
 
 const Navbar = () => {
-    const[users, setUsers] = useState([])
+    const dispatch = useDispatch();
+    const {users, query } = useSelector((state) => state.search);
     useEffect(()=> {
-      fetchUserData()     
+      dispatch(fetchUserData());
     },[])
 
-    const fetchUserData = () => {
-      const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkN2NkZDgyZTYzNTNkNTg3Mzc5YWMxZjdjNzc5N2JlYiIsInN1YiI6IjY0YTE0MjhiYzM5MGM1MDBlYjM1NTU0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tw-vDY3w7kzHCUJHIVW9iKH-9RmwFhbUjMXcPvsWnPg'
-      };
-        fetch("https://api.themoviedb.org/3/genre/movie/list?language=en",{
-          method: 'GET',
-          headers: headers
-        })
-          .then(response => {
-            return response.json()
-          })
-          .then(data => {
-            setUsers(data.genres)
-          })
+    const fetchGenre = (id) => {
+      if(query.length){
+        dispatch(fetchMovieName(query))
+      }else{
+        dispatch(fetchMovie())
       }
-
-
+      setTimeout(() => {
+        dispatch(fetchGenres(id));
+      },5)
+    }
 
   return (
     <Box
@@ -39,10 +34,10 @@ const Navbar = () => {
       </div>
       <div style={{display: 'flex', justifyContent: 'flex-end'}}>
       <nav aria-label="secondary mailbox folders" >
-        {users && users.map((data)=> 
-         <List>
+        {users && users.map((data, index)=> 
+         <List key={index}>
          <ListItem disablePadding>
-           <ListItemButton>
+           <ListItemButton onClick={() => fetchGenre(data.id)}>
              <ListItemText primary={data.name} />
            </ListItemButton>
          </ListItem>

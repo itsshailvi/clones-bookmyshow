@@ -4,6 +4,7 @@ import searchReducer from './../HomePage/Header/searchSlice';
 import thunkMiddleware from 'redux-thunk';
 
 
+
 export const store = configureStore({
   reducer: {
     search: searchReducer,
