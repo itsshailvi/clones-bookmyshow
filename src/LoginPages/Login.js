@@ -3,8 +3,13 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import LockIcon from '@mui/icons-material/Lock';
 import Link from '@mui/material/Link';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate()
+    const homeNavigation = () => {
+        navigate('/')
+    }
     return (
         <>
             <LockIcon style={{ marginTop: '50px' }} baseClassName="fas" className="fa-plus-circle" color="secondary">add_circle</LockIcon>
@@ -31,7 +36,7 @@ const Login = () => {
                     defaultValue="Password"
                 />
                 <br />
-                <Button variant="contained">REGISTER</Button>
+                <Button variant="contained" onClick={homeNavigation}>REGISTER</Button>
                 <br/>
                 <Link href="#" underline="always">
                     {'Already have an account?Sign In'}
