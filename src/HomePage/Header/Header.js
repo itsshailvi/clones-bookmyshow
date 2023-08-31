@@ -11,11 +11,12 @@ import Button from '@mui/material/Button';
 import PersonIcon from '@mui/icons-material/Person';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateQuery, updateResults, fetchMovie, fetchMovieName, setQuery } from './searchSlice';
-
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const dispatch = useDispatch();
   const {query } = useSelector((state) => state.search);
+  const navigate = useNavigate()
 
   const handleInputChange = (event) => {
     dispatch(setQuery(event.target.value))
@@ -35,6 +36,10 @@ const Header = () => {
     dispatch(fetchMovieName(query));
   }
 
+  const handleLogin = () => {
+    navigate('/login')
+  }
+
 
   return (
     <>
@@ -49,7 +54,7 @@ const Header = () => {
             <FavoriteBorder sx={{ fontSize: '2em' }} />
           </IconButton>
           <IconButton sx={{ margin: '0px 10px 0px 10px', paddingRight: '20px' }}>
-            <PersonIcon sx={{ fontSize: '30px', margin: '0px 10px 0px 10px' }} />
+            <PersonIcon sx={{ fontSize: '30px', margin: '0px 10px 0px 10px' }} onClick={handleLogin} />
             Shailvi
           </IconButton>
         </div>
